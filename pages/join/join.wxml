@@ -1,0 +1,36 @@
+<!--pages/join/join.wxml-->
+<view id='join'>
+  <view class='banner'>
+    <image src='{{bannerSrc}}' mode='widthFix'></image>
+  </view>
+  <view class='title box'>
+    <image mode='widthFix' src='{{title}}'> </image>
+  </view>
+  <view class="searchBox box" wx:if='{{hasJoin==false}}'>
+    <form>
+      <input type="text" placeholder="请输入关键字" />
+      <button></button>
+    </form>
+  </view>
+  <view class="jobList box" wx:if='{{hasJoin==false}}'>
+    <navigator url='{{item.url}}' class="jobChild" wx:for="{{joinList}}" wx:key="index">
+      <view class="jobBox">
+        <view class="jobLeft">
+          <view>
+              <text>{{item.name}}</text>
+          </view>
+          <view>
+              <text>地区：{{item.address}} 时间：{{item.time}}</text>
+          </view>
+        </view>
+        <view class="jobRight">
+          <text>查看</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class='noJoin' wx:if='{{hasJoin==true}}'>
+    <text>暂无招聘位置！</text>
+    <text>感谢您的关注！</text>
+  </view>
+</view>

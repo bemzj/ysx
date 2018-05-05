@@ -1,0 +1,240 @@
+/* pages/caseDetails/caseDetails.wxss */
+.wrap .cont1 .list1 {
+    border-bottom: 1px solid #dcdcdc;
+}
+.wrap .cont1 .list1 > view:first-child {
+    font-size: 42rpx;
+    color: #333333;
+    padding: 50rpx 0 0 30rpx;
+}
+.wrap .cont1 .list1 > view:nth-child(2) {
+    padding: 0 0 0 30rpx;
+}
+.wrap .cont1 .list1 > view:nth-child(2) > view {
+    float: left;
+    margin-right: 25rpx;
+    padding: 30rpx 0;
+    font-size: 24rpx;
+    line-height: 30rpx;
+    color: #c4c4c4;
+    background: url("http://www.hengdikeji.com/home/img/icon01.png") no-repeat;
+    background-size: 26rpx;
+    background-position: left center;
+    text-indent: 36rpx;
+}
+.wrap .cont1 .list1 > view:nth-child(2) > view:nth-child(2){
+    background-image: url("http://www.hengdikeji.com/home/img/icon02.png");
+    background-size: 30rpx;
+    text-indent: 38rpx;
+}
+.wrap .cont1 .list2 .l2-1{
+  margin: 50rpx 30rpx 0 30rpx;
+}
+.wrap .cont1 .list2 .l2-1 view{
+  width: 100%;
+  font-size:0rpx;
+}
+.wrap .cont1 .list2 .l2-1 image {
+    width: 100%;
+}
+.wrap .cont1 .list2 .l2-2 {
+    margin: 0rpx 30rpx;
+    background-color: #f1f1f1;
+    padding: 1px;
+    -webkit-border-radius: 0 0 14rpx 14rpx;
+    -moz-border-radius: 0 0 14rpx 14rpx;
+    border-radius: 0 0 14rpx 14rpx;
+}
+.wrap .cont1 .list2 .l2-2 > view {
+    width: 50%;
+    margin: 60rpx auto;
+    padding: 40rpx 0 0 0;
+    border: 1px solid #dcdcdc;
+}
+.wrap .cont1 .list2 .l2-2 > view image {
+  display: block;
+    width: 80%;
+    margin: 0 auto;
+}
+.wrap .cont1 .list2 .l2-2 > view view {
+    text-align: center;
+    font-size: 28rpx;
+    color: #666666;
+    padding: 20rpx 0;
+}
+.wrap .cont1 .list3 {
+    padding: 100rpx 30rpx 50rpx 30rpx;
+    border-bottom: 1px solid #dcdcdc;
+}
+ .wrap .cont1 .list3 > view {
+    /* font-size: 0; */
+    margin:15rpx 0;
+} 
+.wrap .cont1 .list3 > view > view {
+    font-size: 30rpx;
+    color: #666666;
+}
+.wrap .cont1 .list3 > view > view>view{
+    font-size: 28rpx;
+    color: #666666;
+    font-weight: lighter;
+    display: inline-block;
+}
+.wrap .cont1 .list3 .l3-3 > view:first-child{
+    font-size: 30rpx;
+    color: #333333;
+}
+.wrap .cont1 .list3 .l3-3 > view:nth-child(2) {
+    padding-bottom: 50rpx;
+}
+.wrap .cont1 .list3 .l3-3 >view:nth-child(2) text {
+    font-size: 28rpx;
+    color: #333333;
+    font-weight: lighter;
+    line-height: 60rpx;
+    text-align: justify;
+}
+.wrap .cont1 .list4 {
+    padding: 100rpx 30rpx 50rpx 30rpx;
+}
+.wrap .cont1 .list4 .l4-title {
+    font-size: 38rpx;
+    color: #333333;
+}
+.wrap .cont1 .list4 .l4-wrap .w1{
+    float: left;
+    width: 47%;
+    margin: 20rpx 6% 20rpx 0;
+}
+.wrap .cont1 .list4 .l4-wrap .w1 image{
+  width: 100%;
+}
+.wrap .cont1 .list4 .l4-wrap .w1.w11{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    -webkit-justify-content: center;
+    -webkit-flex-direction: column;
+    z-index: 1000;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.wrap .cont1 .list4 .l4-wrap .w1.w11 image{
+    max-width: 80%;
+    max-height: 80%;
+}
+.wrap .cont1 .list4 .l4-wrap .w1:nth-child(2n){
+  margin-right: 0%;
+}
+.wrap .cont1 .list4  .wrap2 {
+    text-align: center;
+    padding: 50rpx 0;
+    font-size: 30rpx;
+    color: #025fbd;
+    font-weight: lighter;
+}
+.wrap .cont1 .list5 {
+    padding: 100rpx 30rpx;
+    background-color: #f1f1f1;
+}
+.wrap .cont1 .list5 .l5-title {
+    font-size: 38rpx;
+    color: #333333;
+    margin-bottom: 20rpx;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 {
+    background-color: #fff;
+    margin-bottom: 25rpx;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-left {
+    width: 40%;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-left image{
+  width: 100%;
+}
+
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator > view {
+    float: left;
+    font-size: 0;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right {
+    width: 60%;
+    height: 100%;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide1 .slide1-title {
+    font-size: 28rpx;
+    color: #333333;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide1 .slide1-title2 {
+    padding: 12rpx 0;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide1 .slide1-title2 > view{
+    display: block;
+    background: url(http://www.hengdikeji.com/home/img/icon02.png) no-repeat;
+    background-size: 30rpx auto;
+    background-position: 0 4rpx;
+    margin-right: 10rpx;
+    font-size: 22rpx;
+    color: #c4c4c4;
+    float: left;
+    font-weight: lighter;
+    text-indent: 35rpx;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide1 .slide1-title2 > view:nth-child(2){
+    background-image:url(http://www.hengdikeji.com/home/img/icon03.png); 
+    background-size: 28rpx auto;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide2 {
+    position: relative;
+    padding: 16rpx 30rpx;
+    background: url('http://www.hengdikeji.com/home/img/xingzhuang02.png') no-repeat 95% center;
+    background-size: 15rpx;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide1 {
+    border-bottom: 1px solid #dcdcdc;
+    padding: 25rpx 0rem 5rpx 30rpx;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide2 > view:first-child>view {
+    font-size: 22rpx;
+    color: #666666;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide2 > view:first-child>view>view {
+    display:inline-block;
+    color:#999999;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide2 > view:last-child image{
+    position: absolute;
+    top: 50%;
+    margin-top: -15rpx;
+    right: 20rpx;
+    height:30rpx;
+    width: 18rpx;
+}
+.wrap .cont1 .list5 .l5-wrap .wrap-1 > navigator .w1-right .slide2 > view:last-child {
+    height: 100%;
+}
+#contactOnLink{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  
+}
+#contactOnLink button{
+  width: 100%;
+  font-size: 30rpx;
+  line-height: 88rpx;
+  border-radius: 0px;
+  text-align: center;
+  background-color: #ea3424;
+  color: white;
+}

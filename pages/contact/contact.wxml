@@ -1,0 +1,18 @@
+<view id='contact'> 
+  <view class='banner'>
+    <image src='{{bannerSrc}}' mode='widthFix'></image>
+  </view>
+  <view class='title box'>
+    <image mode='widthFix' src='/images/contactUs.png'> </image>
+  </view>
+  <view class='box'>
+    <view class='content' wx:for="{{infor}}" wx:key = "index" bindtap="{{index==2?'openPhone':'setClip'}}" data-index='{{index}}'>
+      <text style="background-image:url('{{item.src}}');background-size: auto {{item.size}};">{{item.content}}</text>
+    </view>
+  </view> 
+  <map id="map" longitude='{{map.longitude}}' latitude='{{map.latitude}}' scale='{{map.scale}}' markers='{{map.markers}}' show-location="{{map.showLocation}}" controls='{{map.controls}}' bindmarkertap='navigation'></map>
+  <view class='erCode box'>
+    <image mode='widthFix' src='/images/erCode.jpg'> </image>
+  </view>
+</view>
+

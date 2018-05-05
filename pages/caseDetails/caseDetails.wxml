@@ -1,0 +1,87 @@
+<view class="wrap">
+  <view class="cont1">
+    <view class="list1">
+      <view>{{currentCase.name}}</view>
+      <view class="clearfloat">
+        <view>{{currentCase.time}}</view>
+        <view>{{currentCase.look}}</view>
+      </view>
+    </view>
+    <view class="list2">
+      <view class="l2-1">
+        <view>
+          <image src="{{currentCase.imgUrl}}" mode='widthFix' alt=""></image>
+        </view>
+      </view>
+      <view class="l2-2">
+        <view>
+          <image src="{{currentCase.imgEr}}" mode='widthFix' bindtap='previewImage' alt=""></image>
+          <view>微信扫一扫马上浏览</view>
+        </view>
+      </view>
+    </view>
+    <view class="list3">
+      <view class="l3-1">
+        <view>类型：
+          <view>{{currentCase.firstName}}（{{currentCase.secondName}}）</view>
+        </view>
+      </view>
+      <view class="l3-2">
+        <view>品牌：
+          <view>{{currentCase.company}}</view>
+        </view>
+      </view>
+      <view class="l3-3">
+        <view>说明：</view>
+        <view>
+          <text>{{currentCase.content}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="list4">
+      <view class="l4-title">王者答题设计稿</view>
+      <view class="l4-wrap clearBoth">
+        <view class="w1 {{bigIndex==index?'w11':''}}" wx:for="{{allImg}}" wx:key="index" data-index='{{index}}' bindtap='imgBig'>
+          <image src="{{item}}" mode='widthFix' alt=""></image>
+        </view>
+      </view>
+      <view class="wrap2">
+        <view>展开更多</view>
+      </view>
+    </view>
+    <view class="list5">
+      <view class="l5-title">相关案例</view>
+      <view class="l5-wrap">
+        <view class="wrap-1" wx:for="{{elseCase}}" wx:key="index">
+          <navigator class="clearfloat" url='{{item.link}}'>
+            <view class="w1-left">
+              <image src="{{item.imgLink}}" mode='widthFix' alt=""></image>
+            </view>
+            <view class="w1-right">
+              <view class="slide1">
+                <view class="slide1-title">{{item.name}}</view>
+                <view class="clearfloat slide1-title2">
+                  <view>
+                   {{item.look}}
+                  </view>
+                  <view>
+                   {{item.collect}}
+                  </view>
+                </view>
+              </view>
+              <view class="slide2">
+                <view>
+                  <view>{{item.firstName}}<view>（{{item.secondName}}）</view></view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+<view id='contactOnLink'>
+    <button open-type='contact'>在线联系</button>
+  </view>

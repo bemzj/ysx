@@ -1,0 +1,37 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  box-sizing: border-box;
+} 
+page{
+  min-height:100%;
+}
+.banner{
+  width: 100%;
+  font-size: 0;
+}
+.banner image{
+  width: 100%;
+}
+.box{
+  width: 90%;
+  margin: 0 auto;
+}
+.title{
+  padding-top: 40rpx;
+  padding-bottom: 20rpx;
+}
+.title image{
+    width: 50%;
+    height: auto;
+    margin: 0 auto
+}
+view{
+    box-sizing: border-box;
+}
+.clearfloat::after {
+  display: block;
+  clear: both;
+  content: "";
+  visibility: hidden;
+  height: 0; }
