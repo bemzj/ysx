@@ -17,9 +17,19 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindFile: function() {
     wx.navigateTo({
-      url: '../logs/logs'
+      url: '../about/about'
+    })
+  },
+  bindCamera: function () {
+    wx.navigateTo({
+      url: '../about/about'
+    })
+  },
+  bindMy: function () {
+    wx.navigateTo({
+      url: '../about/about'
     })
   },
   onLoad: function () {

@@ -1,0 +1,36 @@
+<!--pages/create/create.wxml-->
+<view class="container">
+  <view class='wxSrc wxSrc1'>
+    <view class='cardTitle'>
+      <text>我的名片</text>
+      <text>My business card</text>
+    </view>
+    <view class='card card1'>
+      <image src='../../images/card1.png' mode='widthFix'></image>
+      <view class='cardBox'>
+          <text class='companyName companyName1'>{{all.companyName==''? "公司名称":all.companyName}}</text>
+          <view class='message message1'>
+            <text class='name'>{{all.name==''? "姓名":all.companyName}}</text>
+            <view class='phone mBox'>             
+              <view class="{{all.phone==''?'':'has'}}"><text>C</text>{{all.phone}}</view>
+            </view>
+            <view class='email mBox'>
+              <view class="{{all.email==''?'':'has'}}"><text>M</text>{{all.email}}</view>
+            </view>
+            <view class='address mBox'>
+              <view class="{{all.address==''?'':'has'}}"><text>A</text>{{all.address}}</view>
+            </view> 
+          </view>
+      </view>     
+    </view>
+  </view>
+  <view class='inputBox'>
+      <form bindsubmit="formSubmit" bindreset="formReset">  
+      <view class='inputs'>
+        <input type="text" placeholder="输入关键字搜索" />
+      </view>
+      </form>  
+  </view>
+  <input type='text' placeholder='dasd'/>
+</view>
+

@@ -1,29 +1,17 @@
-// pages/join/join.js
+// pages/create/create.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    bannerSrc:"http://www.hengdikeji.com/home/img/join01.png",
-    title: "http://www.hengdikeji.com/home/img/job_03.png",
-    hasJoin:false,
-    joinList:[{
-      name:'客服专员',
-      address:'深圳 福田区',
-      time:'2018-03-21',
-      url:'../../pages/joinDetails/joinDetails'
-    }, {
-      name: '客服专员1',
-      address: '深圳 福田区',
-      time: '2018-03-22',
-      url: '../../pages/joinDetails/joinDetails'
-      }, {
-        name: '客服专员2',
-        address: '深圳 福田区',
-        time: '2018-03-23',
-        url: '../../pages/joinDetails/joinDetails'
-      }]
+    all: {
+      companyName: '',
+      name: '',
+      phone: '15999911956',
+      email: 'qiuzijia520@qq.com',
+      address: '广州市海珠区琶洲新村广州市海珠区琶洲新村',
+    }
   },
 
   /**

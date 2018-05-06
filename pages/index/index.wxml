@@ -11,7 +11,7 @@
     <view class='card'>
       <image src='../../images/card.png' mode='widthFix'></image>
       <view class='cardBox'>
-          <text class='companyName companyName1'>{{all.companyName==''? "公司名称":all.companyName}}</text>
+          <text class='companyName'>{{all.companyName==''? "公司名称":all.companyName}}</text>
           <view class='message'>
             <text class='name'>{{all.name==''? "姓名":all.companyName}}</text>
             <view class='phone mBox'>             
@@ -29,5 +29,10 @@
             </view>
       </view>     
     </view>
+  </view>
+  <view class='threeBtn clearfloat'>
+    <view><image src='../../images/file.png' mode='widthFix' bindtap='bindFile'></image></view>
+    <view><image src='../../images/camera.png' mode='widthFix' bindtap='bindCamera'></image></view>
+    <view><image src='../../images/my.png' mode='widthFix' bindtap='bindMy'></image></view>
   </view>
 </view>

@@ -1,13 +1,8 @@
 {
   "pages":[
+    "pages/create/create",
     "pages/index/index",
-    "pages/join/join",
-    "pages/case/case",
-    "pages/about/about",
-    "pages/contact/contact",
-    "pages/caseDetails/caseDetails",
-    "pages/joinDetails/joinDetails"
-    
+    "pages/about/about" 
   ],
   "window":{
     "backgroundTextStyle":"light",
