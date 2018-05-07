@@ -26,11 +26,35 @@
   </view>
   <view class='inputBox'>
       <form bindsubmit="formSubmit" bindreset="formReset">  
-      <view class='inputs'>
-        <input type="text" placeholder="输入关键字搜索" />
-      </view>
+        <view class='inputs'>
+          <text  style='background-image: url("../../images/msg1.png")'>姓名</text>
+          <input type="text" placeholder="请输入您的姓名" placeholder-style='inputPlace' />
+        </view>
+        <view class='inputs'>
+          <text  style='background-image: url("../../images/msg2.png")'>公司</text>
+          <input type="text" placeholder="请输入公司名称" placeholder-style='inputPlace' />
+        </view>
+        <view class='inputs'>
+          <text  style='background-image: url("../../images/msg3.png")'>电话</text>
+          <input type="number" placeholder="请输入您的联系电话" placeholder-style='inputPlace' />
+        </view>
+        <view class='inputs'>
+          <text  style='background-image: url("../../images/msg4.png")'>邮箱</text>
+          <input type="text" placeholder="请输入邮箱地址" placeholder-style='inputPlace' />
+        </view>
+        <view class='inputs'>
+          <text  style='background-image: url("../../images/msg5.png")'>所在城市</text>
+          <picker mode="region" bindchange="bindRegionChange" value="{{region}}"  style='background-image: url("../../images/msg7.png")'>
+            <view class="picker">
+              {{region[0]}}，{{region[1]}}，{{region[2]}}
+            </view>
+          </picker>
+        </view>
+        <view class='inputs'>
+          <text  style='background-image: url("../../images/msg6.png")'>详细地址</text>
+          <input type="text" placeholder="请输入详细地址" placeholder-style='inputPlace' value='{{addressDetail}}' />
+        </view>
       </form>  
   </view>
-  <input type='text' placeholder='dasd'/>
 </view>
 

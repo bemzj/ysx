@@ -8,11 +8,55 @@
   margin: 0 auto;
   margin-top: 190rpx;
 }
+.inputBox .inputs{
+  position: relative;
+  border-bottom:1px solid #dcdcdc; 
+}
+.inputBox .inputs text{
+  position: absolute;
+  top: 0;
+  left: 0;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  padding-left: 80rpx;
+  color: #333333;
+  background-position: 32rpx center;
+  background-repeat: no-repeat;
+  background-size: 26rpx;
+}
+.inputPlace{
+  color: #b4b4b4;
+}
 .inputBox .inputs input{
+     display: block;
+    height: 90rpx;
+    font-size: 30rpx;
+    line-height: 90rpx;
+    width: 74%;
+    margin-left: 35%; 
+    color: #333333;
+  }
+.inputBox .inputs picker{
      display: block;
     height: 90rpx;
     font-size: 30rpx;
     line-height: 90rpx;
     width: 62.5%;
     margin-left: 35%; 
+    color: #333333;
+    background-size:14rpx;
+    background-repeat:no-repeat;
+    background-position: right center;
   }
+.inputBox .inputs:nth-child(3) text{
+    background-size: 22rpx;
+    background-position-x: 34rpx;
+}
+.inputBox .inputs:nth-child(4) text{
+    background-size: 30rpx;
+    background-position-x: 28rpx;
+}
+.inputBox .inputs:nth-child(6) text{
+    background-size: 30rpx;
+    background-position-x: 28rpx;
+}
