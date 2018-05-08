@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/nameCard/nameCard",
     "pages/create/create",
     "pages/index/index",
     "pages/about/about" 
