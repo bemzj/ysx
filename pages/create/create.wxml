@@ -8,53 +8,60 @@
     <view class='card card1'>
       <image src='../../images/card1.png' mode='widthFix'></image>
       <view class='cardBox'>
-          <text class='companyName companyName1'>{{all.companyName==''? "公司名称":all.companyName}}</text>
-          <view class='message message1'>
-            <text class='name'>{{all.name==''? "姓名":all.companyName}}</text>
-            <view class='phone mBox'>             
-              <view class="{{all.phone==''?'':'has'}}"><text>C</text>{{all.phone}}</view>
-            </view>
-            <view class='email mBox'>
-              <view class="{{all.email==''?'':'has'}}"><text>M</text>{{all.email}}</view>
-            </view>
-            <view class='address mBox'>
-              <view class="{{all.address==''?'':'has'}}"><text>A</text>{{all.address}}</view>
-            </view> 
+        <text class='companyName companyName1'>{{all.companyName==''? "公司名称":all.companyName}}</text>
+        <view class='message message1'>
+          <text class='name'>{{all.name==''? "姓名":all.companyName}}</text>
+          <view class='phone mBox'>
+            <view class="{{all.phone==''?'':'has'}}">
+              <text>C</text>{{all.phone}}</view>
           </view>
-      </view>     
+          <view class='email mBox'>
+            <view class="{{all.email==''?'':'has'}}">
+              <text>M</text>{{all.email}}</view>
+          </view>
+          <view class='address mBox'>
+            <view class="{{all.address==''?'':'has'}}">
+              <text>A</text>{{all.address}}</view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
   <view class='inputBox'>
-      <form bindsubmit="formSubmit" bindreset="formReset">  
-        <view class='inputs'>
-          <text  style='background-image: url("../../images/msg1.png")'>姓名</text>
-          <input type="text" placeholder="请输入您的姓名" placeholder-style='inputPlace' />
-        </view>
-        <view class='inputs'>
-          <text  style='background-image: url("../../images/msg2.png")'>公司</text>
-          <input type="text" placeholder="请输入公司名称" placeholder-style='inputPlace' />
-        </view>
-        <view class='inputs'>
-          <text  style='background-image: url("../../images/msg3.png")'>电话</text>
-          <input type="number" placeholder="请输入您的联系电话" placeholder-style='inputPlace' />
-        </view>
-        <view class='inputs'>
-          <text  style='background-image: url("../../images/msg4.png")'>邮箱</text>
-          <input type="text" placeholder="请输入邮箱地址" placeholder-style='inputPlace' />
-        </view>
-        <view class='inputs'>
-          <text  style='background-image: url("../../images/msg5.png")'>所在城市</text>
-          <picker mode="region" bindchange="bindRegionChange" value="{{region}}"  style='background-image: url("../../images/msg7.png")'>
-            <view class="picker">
-              {{region[0]}}，{{region[1]}}，{{region[2]}}
-            </view>
-          </picker>
-        </view>
-        <view class='inputs'>
-          <text  style='background-image: url("../../images/msg6.png")'>详细地址</text>
-          <input type="text" placeholder="请输入详细地址" placeholder-style='inputPlace' value='{{addressDetail}}' />
-        </view>
-      </form>  
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class='inputs'>
+        <text style='background-image: url("../../images/msg1.png")'>姓名</text>
+        <input type="text" placeholder="请输入您的姓名" placeholder-style='inputPlace' />
+      </view>
+      <view class='inputs'>
+        <text style='background-image: url("../../images/msg2.png")'>公司</text>
+        <input type="text" placeholder="请输入公司名称" placeholder-style='inputPlace' />
+      </view>
+      <view class='inputs'>
+        <text style='background-image: url("../../images/msg3.png")'>电话</text>
+        <input type="number" placeholder="请输入您的联系电话" placeholder-style='inputPlace' />
+      </view>
+      <view class='inputs'>
+        <text style='background-image: url("../../images/msg4.png")'>邮箱</text>
+        <input type="text" placeholder="请输入邮箱地址" placeholder-style='inputPlace' />
+      </view>
+      <view class='inputs'>
+        <text style='background-image: url("../../images/msg5.png")'>所在城市</text>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" style='background-image: url("../../images/msg7.png")'>
+          <view class="picker">
+            {{region[0]}}，{{region[1]}}，{{region[2]}}
+          </view>
+        </picker>
+      </view>
+      <view class='inputs'>
+        <text style='background-image: url("../../images/msg6.png")'>详细地址</text>
+        <input type="text" placeholder="请输入详细地址" placeholder-style='inputPlace' value='{{addressDetail}}' />
+      </view>
+    </form>
+  </view>
+  <view class='createBox'>
+    <view class='create'>
+      <button>创建我的名片</button>
+    </view>
   </view>
 </view>
-
