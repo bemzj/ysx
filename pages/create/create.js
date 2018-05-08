@@ -34,6 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    // 获取地理位置
     var self = this;
     wx.getLocation({
       type: 'wgs84',
@@ -84,7 +85,11 @@ Page({
           }
         })
       }
-    }) 
+    });
+    //设置标题
+    wx.setNavigationBarTitle({
+      title: '我的'
+    });
   },
 
   /**
