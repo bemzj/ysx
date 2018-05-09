@@ -1,7 +1,8 @@
 {
   "pages":[
-    "pages/nameCard/nameCard",
     "pages/create/create",
+    "pages/upLoading/upLoading",
+    "pages/nameCard/nameCard",
     "pages/index/index",
     "pages/about/about" 
   ],

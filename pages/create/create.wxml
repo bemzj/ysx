@@ -4,6 +4,7 @@
     <view class='cardTitle'>
       <text>我的名片</text>
       <text>My business card</text>
+      <button wx:if="{{hasData}}">编辑</button>
     </view>
     <view class='card card1'>
       <image src='../../images/card1.png' mode='widthFix'></image>
@@ -27,7 +28,7 @@
       </view>
     </view>
   </view>
-  <view class='inputBox'>
+  <view class='inputBox' wx:if="{{hasData == false}}">
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class='inputs'>
         <text style='background-image: url("../../images/msg1.png")'>姓名</text>
@@ -59,9 +60,14 @@
       </view>
     </form>
   </view>
-  <view class='createBox'>
+  <view class='codeBox'>
+    <view>
+      <image src='../../images/QR.png'></image>
+    </view>
+  </view>
+  <view class="createBox {{hasData?'createBox1':''}}">
     <view class='create'>
-      <button>创建我的名片</button>
+      <button>{{hasData?'分享好友':'创建我的名片'}}</button>
     </view>
   </view>
 </view>

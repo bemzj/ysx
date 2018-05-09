@@ -1,0 +1,47 @@
+<!--pages/upLoading/upLoading.wxml-->
+<view id='upLoading'>
+  <view class='wrap'>
+    <view class='listWrap'>
+      <view class='list'>
+        <view class='list1'>
+          <view class='circle'></view>
+          <text class='name'>{{detailData.name}}</text>
+          <text class='company'>{{detailData.company}}</text>
+        </view>
+        <view class='list2'>
+          <view>
+            <view class='list2-1'>
+              <view class='phone'>
+                <icon style='background: url("../../images/msg3.png") no-repeat;background-size:100% 100%;'></icon>
+                <text >{{detailData.phone}}</text>
+              </view>
+              <view class='email'>
+                <icon style='background: url("../../images/msg4.png") no-repeat;background-size:100% 100%;'></icon>
+                <text >{{detailData.email}}</text>
+              </view>
+            </view>
+            <view class='list2-2'>
+              <view class='address'>
+                <icon style='background: url("../../images/msg5.png") no-repeat;background-size:100% 100%;'></icon>
+                <text >{{detailData.address}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='imgWrap'>
+      <image src='../../images/img01.png' mode='aspectFit'></image>
+    </view>
+  </view>
+  <view class='bottom'>
+    <view>
+      <view>
+        <icon type='clear' color='rgb(222,222,225)' size='45'></icon>
+      </view>
+      <view>
+        <button>生成名片</button>
+      </view>
+    </view>
+  </view>
+</view>

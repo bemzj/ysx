@@ -1,0 +1,143 @@
+/* pages/upLoading/upLoading.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+#upLoading{
+  width: 100%;
+  height: 100%;
+}
+.wrap{
+  height: 82%;
+}
+.bottom{
+  height: 18%;
+  background-color: #efeff4;
+  display: flex;
+  align-items: center;
+}
+.bottom>view{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom>view view:first-child{
+  width: 30%;
+  padding-right: 40rpx;
+  text-align: right;
+}
+.bottom>view view:last-child{
+  width: 70%;
+  padding-right: 95rpx;
+}
+.bottom>view view:last-child button{
+  background-color: #3f8cf4;
+  color: #ffffff;
+  font-size: 30rpx;
+  padding: 5px 0;
+  border-radius: 23px;
+  box-shadow: 0px 10px 10px  #d1d9f3; 
+}
+.listWrap{
+  width: 100%;
+  height: 45%;
+  background-color: #efeff4;
+  padding: 30rpx 0;
+}
+.imgWrap{
+  width: 100%;
+  height: 55%;
+  background-color: #606060;
+  display: flex;
+  align-items: center;
+  padding: 40rpx 0;
+  font-size: 30rpx;
+}
+.imgWrap image{
+  max-height: 100%;
+  max-width:100%; 
+}
+.listWrap .list{
+  width: 88%;
+  margin: auto;
+}
+.list1{
+  border-bottom: 1px solid #e1e4e9;
+  border-radius: 10rpx;
+  background-color: #ffffff;
+  height: 177rpx;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.list1 text{
+  margin-left: 70rpx;
+}
+.name{
+  color: #333333;
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+.circle{
+  position: absolute;
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  background-color: #3f8cf4;
+  top: 50%;
+   margin-top: -75rpx; 
+  left: -125rpx;
+}
+.company{
+  font-size: 24rpx;
+  color: #999999;
+}
+.list2{
+  background-color: #fefdff;
+  border-radius: 0 0 10rpx 10rpx;
+  font-size: 24rpx;
+  color: #666666;
+  height: 177rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.list2>view{
+  width: 80%;
+}
+.list2-1{
+  margin-bottom: 20rpx;
+}
+.list2-1,.list2-2{
+  display: flex;
+  align-items: center;
+}
+.list2-1 icon,.list2-2 icon{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 18rpx;
+}
+.list2-1>view,.list2-2>view{
+  display: flex;
+  align-items: center;
+}
+.list2-1>view{
+  width: 50%;
+}
+.phone icon{
+  width: 30rpx;
+}
+.email icon{
+  width: 50rpx;
+  height: 38rpx;
+}
+.address icon{
+  width: 35rpx;
+  margin-right: 13rpx;
+}
