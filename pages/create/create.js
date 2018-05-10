@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    hasData:true,
+    hasData:false,
     all: {
       companyName: '',
       name: '',
@@ -16,7 +16,11 @@ Page({
     region: [],
     addressDetail:''
   },
-
+  click1:function(){
+    this.setData({
+      hasData:true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

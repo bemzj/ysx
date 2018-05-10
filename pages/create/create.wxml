@@ -60,14 +60,14 @@
       </view>
     </form>
   </view>
-  <view class='codeBox'>
+  <view class='codeBox' wx:if="{{hasData == true}}">
     <view>
       <image src='../../images/QR.png'></image>
     </view>
   </view>
   <view class="createBox {{hasData?'createBox1':''}}">
     <view class='create'>
-      <button>{{hasData?'分享好友':'创建我的名片'}}</button>
+      <button bindtap='click1'>{{hasData?'分享好友':'创建我的名片'}}</button>
     </view>
   </view>
 </view>
