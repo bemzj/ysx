@@ -1,142 +1,142 @@
 /* pages/create/create.wxss */
-.container{
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: fixed;
-  /* background-color: #efeff4; */
+
+.container {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: fixed;
+    /* background-color: #efeff4; */
 }
-::-webkit-scrollbar{
-  width: 0;
-  height: 0;
-  color: transparent;
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
 }
-.cardTitle{
-  position: relative;
+.cardTitle {
+    position: relative;
 }
-.cardTitle button{
-  position: absolute;
-  bottom: 0;
-  right: 45rpx;
-  color: #ffffff;
-  background-color: transparent;
-  border: 1px solid #ffffff;
-  font-size: 30rpx;
-  height: 50rpx;
-  line-height: 46rpx;
-  padding: 0rpx 30rpx; 
-  border-radius:50rpx;  
+.cardTitle button {
+    position: absolute;
+    bottom: 0;
+    right: 45rpx;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #ffffff;
+    font-size: 30rpx;
+    height: 50rpx;
+    line-height: 46rpx;
+    padding: 0rpx 30rpx;
+    border-radius: 50rpx;
 }
-.inputBox{ 
-  width: 89.33%;
-  margin: 0 auto;
-  margin-top: 190rpx;
-  padding-bottom: 150rpx;
+.inputBox {
+    width: 89.33%;
+    margin: 0 auto;
+    margin-top: 190rpx;
+    padding-bottom: 150rpx;
 }
-.inputBox .inputs{
-  position: relative;
-  border-bottom:1px solid #dcdcdc; 
+.inputBox .inputs {
+    position: relative;
+    border-bottom: 1px solid #dcdcdc;
 }
-.inputBox .inputs text{
-  position: absolute;
-  top: 0;
-  left: 0;
-  line-height: 90rpx;
-  font-size: 30rpx;
-  padding-left: 80rpx;
-  color: #333333;
-  background-position: 32rpx center;
-  background-repeat: no-repeat;
-  background-size: 26rpx;
+.inputBox .inputs text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 90rpx;
+    font-size: 30rpx;
+    padding-left: 80rpx;
+    color: #333333;
+    background-position: 32rpx center;
+    background-repeat: no-repeat;
+    background-size: 26rpx;
 }
-.inputPlace{
-  color: #b4b4b4;
+.inputPlace {
+    color: #b4b4b4;
 }
-.inputBox .inputs input{
-     display: block;
+.inputBox .inputs input {
+    display: block;
     height: 90rpx;
     font-size: 30rpx;
     line-height: 90rpx;
     width: 74%;
-    margin-left: 35%; 
+    margin-left: 35%;
     color: #333333;
-  }
-.inputBox .inputs picker{
-     display: block;
+}
+.inputBox .inputs picker {
+    display: block;
     height: 90rpx;
     font-size: 30rpx;
     line-height: 90rpx;
     width: 62.5%;
-    margin-left: 35%; 
+    margin-left: 35%;
     color: #333333;
-    background-size:14rpx;
-    background-repeat:no-repeat;
+    background-size: 14rpx;
+    background-repeat: no-repeat;
     background-position: right center;
-  }
-.inputBox .inputs:nth-child(3) text{
+}
+.inputBox .inputs:nth-child(3) text {
     background-size: 22rpx;
     background-position-x: 34rpx;
 }
-.inputBox .inputs:nth-child(4) text{
+.inputBox .inputs:nth-child(4) text {
     background-size: 30rpx;
     background-position-x: 28rpx;
 }
-.inputBox .inputs:nth-child(6) text{
+.inputBox .inputs:nth-child(6) text {
     background-size: 30rpx;
     background-position-x: 28rpx;
 }
- page{
-  min-height: 100%;
-  background-color: #efeff4;
-  
-} 
-.create{
-  border: 6rpx solid rgba(63,140,244,0.1);
-  width: 412rpx;
-  height: 102rpx;
-  border-radius: 45rpx;
-  margin: 0rpx auto;
+page {
+    min-height: 100%;
+    background-color: #efeff4;
 }
-.createBox{
-  position: fixed;
-  left: 0;
-  bottom: 20rpx;
-  width: 100%;
+.create {
+    border: 6rpx solid rgba(63, 140, 244, 0.1);
+    width: 412rpx;
+    height: 102rpx;
+    border-radius: 45rpx;
+    margin: 0rpx auto;
 }
-.createBox1{
-  position: absolute;
-  bottom: 90rpx;
+.createBox {
+    position: fixed;
+    left: 0;
+    bottom: 20rpx;
+    width: 100%;
 }
-.create button{
+.createBox1 {
+    position: absolute;
+    bottom: 90rpx;
+}
+.create button {
     width: 100%;
     height: 100%;
     border-radius: 45rpx;
-    background-color: #3f8cf4;   
+    background-color: #3f8cf4;
     color: white;
     font-size: 30rpx;
     line-height: 90rpx;
 }
-.codeBox{
-  background-color: #ffffff;
-  width: 86%;
-  height: 590rpx;
-  margin: 175rpx auto 0 auto;
-  border-radius: 0 0 15rpx 15rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.codeBox {
+    background-color: #ffffff;
+    width: 86%;
+    height: 590rpx;
+    margin: 175rpx auto 0 auto;
+    border-radius: 0 0 15rpx 15rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.codeBox>view{
-  border: 1px solid #dcdcdc;
-  width: 350rpx;
-  height: 350rpx;
-  margin-top: -120rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.codeBox>view {
+    border: 1px solid #dcdcdc;
+    width: 350rpx;
+    height: 350rpx;
+    margin-top: -120rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.codeBox>view image{
-  width: 320rpx;
-  height: 320rpx;
+.codeBox>view image {
+    width: 320rpx;
+    height: 320rpx;
 }

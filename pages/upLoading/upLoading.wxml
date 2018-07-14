@@ -17,7 +17,7 @@
               </view>
               <view class='email'>
                 <icon style='background: url("../../images/msg4.png") no-repeat;background-size:100% 100%;'></icon>
-                <text >{{detailData.email}}</text>
+                <text >{{detailData.mail}}</text>
               </view>
             </view>
             <view class='list2-2'>
@@ -31,16 +31,18 @@
       </view>
     </view>
     <view class='imgWrap'>
-      <image src='../../images/img01.png' mode='aspectFit'></image>
+      <!-- <image src='../../images/img01.png' mode='aspectFit'></image> -->
+      <image src='{{ routeImg + phoneUrl }}' mode='aspectFit' wx:if="{{ phoneUrl != '' }}"></image>
     </view>
   </view>
   <view class='bottom'>
     <view>
       <view>
-        <icon type='clear' color='rgb(222,222,225)' size='45'></icon>
+        <icon type='clear' color='rgb(222,222,225)' size='45' bindtap="clearPhone"></icon>
       </view>
       <view>
-        <button>生成名片</button>
+        <button wx:if="{{ uploadBtn == false }}" bindtap="addMyCard">生成名片</button>
+        <button wx:else bindtap="pnoneUpload">上传图片</button>
       </view>
     </view>
   </view>

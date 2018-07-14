@@ -1,73 +1,88 @@
 <!--pages/create/create.wxml-->
 <view class="container">
   <view class='wxSrc wxSrc1'>
-    <view class='cardTitle'>
+    <view class='cardTitle' wx:if="{{ share == false }}">
       <text>我的名片</text>
       <text>My business card</text>
-      <button wx:if="{{hasData}}">编辑</button>
+      <button wx:if="{{ hasData }}" bindtap="edtMyCard">编辑</button>
+    </view>
+    <view class='cardTitle' wx:else>
+      <text>朋友的名片</text>
+      <text>Friend business card</text>
     </view>
     <view class='card card1'>
       <image src='../../images/card1.png' mode='widthFix'></image>
       <view class='cardBox'>
-        <text class='companyName companyName1'>{{all.companyName==''? "公司名称":all.companyName}}</text>
+        <text class='companyName companyName1'>{{all.company==null? "公司名称":all.company}}</text>
         <view class='message message1'>
-          <text class='name'>{{all.name==''? "姓名":all.companyName}}</text>
+          <text class='name'>{{all.name == null ? "姓名":all.name}}</text>
           <view class='phone mBox'>
-            <view class="{{all.phone==''?'':'has'}}">
-              <text>C</text>{{all.phone}}</view>
+            <view class="{{all.phone==null?'':'has'}}">
+              <text>C</text>{{all.phone==null ? '' : all.phone}}</view>
           </view>
           <view class='email mBox'>
-            <view class="{{all.email==''?'':'has'}}">
-              <text>M</text>{{all.email}}</view>
+            <view class="{{all.mail==null?'':'has'}}">
+              <text>M</text>{{all.mail==null ? '' : all.mail}}</view>
           </view>
           <view class='address mBox'>
-            <view class="{{all.address==''?'':'has'}}">
-              <text>A</text>{{all.address}}</view>
+            <view class="{{all.address==null?'':'has'}}">
+              <text>A</text>{{all.address==null ? '' : all.area.areaOne + all.address}}</view>
           </view>
         </view>
       </view>
     </view>
   </view>
-  <view class='inputBox' wx:if="{{hasData == false}}">
-    <form bindsubmit="formSubmit" bindreset="formReset">
+  <view class='inputBox' wx:if="{{ hasData == false && share == false }}">
+    <form bindsubmit="edtCard">
       <view class='inputs'>
         <text style='background-image: url("../../images/msg1.png")'>姓名</text>
-        <input type="text" placeholder="请输入您的姓名" placeholder-style='inputPlace' />
+        <input type="text" placeholder="请输入您的姓名" placeholder-style='inputPlace' name="name" value="{{all.name == null ? '':all.name}}" />
       </view>
       <view class='inputs'>
         <text style='background-image: url("../../images/msg2.png")'>公司</text>
-        <input type="text" placeholder="请输入公司名称" placeholder-style='inputPlace' />
+        <input type="text" placeholder="请输入公司名称" placeholder-style='inputPlace' name="company" value="{{all.company==null? '':all.company}}" />
       </view>
       <view class='inputs'>
         <text style='background-image: url("../../images/msg3.png")'>电话</text>
-        <input type="number" placeholder="请输入您的联系电话" placeholder-style='inputPlace' />
+        <input type="number" placeholder="请输入您的联系电话" placeholder-style='inputPlace' name="phone" value="{{all.phone==null ? '' : all.phone}}" />
       </view>
       <view class='inputs'>
         <text style='background-image: url("../../images/msg4.png")'>邮箱</text>
-        <input type="text" placeholder="请输入邮箱地址" placeholder-style='inputPlace' />
+        <input type="text" placeholder="请输入邮箱地址" placeholder-style='inputPlace' name="mail" value="{{all.mail==null ? '' : all.mail}}" />
       </view>
       <view class='inputs'>
         <text style='background-image: url("../../images/msg5.png")'>所在城市</text>
         <picker mode="region" bindchange="bindRegionChange" value="{{region}}" style='background-image: url("../../images/msg7.png")'>
           <view class="picker">
-            {{region[0]}}，{{region[1]}}，{{region[2]}}
+              {{region[0]}} {{region[1]}} {{region[2]}}
+              <!-- {{ all.area == null ? region[0] + ' ' + region[1] + ' ' + region[2] : all.area.areaTwo }} -->
           </view>
         </picker>
       </view>
       <view class='inputs'>
         <text style='background-image: url("../../images/msg6.png")'>详细地址</text>
-        <input type="text" placeholder="请输入详细地址" placeholder-style='inputPlace' value='{{addressDetail}}' />
+        <input type="text" placeholder="请输入详细地址" placeholder-style='inputPlace' value='{{all.address==null ? addressDetail :  all.address}}' name="address" />
+      </view>
+
+      <view class="createBox {{hasData?'createBox1':''}}">
+        <view class='create' wx:if="{{ hasData == false }}">
+          <button formType="submit" wx:if="{{ all.name == null }}">生成名片</button>
+          <button formType="submit" wx:else>修改我的名片</button>
+        </view>
       </view>
     </form>
   </view>
-  <view class='codeBox' wx:if="{{hasData == true}}">
+  <view class='codeBox' wx:if="{{ hasData == true && share ==false }}">
     <view>
-      <image src='../../images/QR.png'></image>
+      <image src='{{ hostUrl + all.qrcode }}'></image>
     </view>
   </view>
   <view class="createBox {{hasData?'createBox1':''}}">
-    <view class='create'>
-      <button bindtap='click1'>{{hasData?'分享好友':'创建我的名片'}}</button>
+    <view class='create'  wx:if="{{ hasData == true && share == false }}">
+      <button open-type='share'>分享好友</button>
+    </view>
+    <view class='create'  wx:elif="{{ share == true }}">
+      <button bindtap="addMyCard">保存到我的小名片</button>
     </view>
   </view>
 </view>
