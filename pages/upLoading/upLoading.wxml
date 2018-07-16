@@ -32,7 +32,17 @@
     </view>
     <view class='imgWrap'>
       <!-- <image src='../../images/img01.png' mode='aspectFit'></image> -->
-      <image src='{{ routeImg + phoneUrl }}' mode='aspectFit' wx:if="{{ phoneUrl != '' }}"></image>
+      <view class='imgOn'>
+        <image src='{{ routeImg + phoneUrl }}' mode='aspectFit' wx:if="{{ phoneUrl != '' }}"></image>
+        <view class='imgUp'>
+          <movable-area>
+            <movable-view wx:for='{{alltext}}' wx:key="index" x="{{x[index]}}" y="{{y[index]}}">
+            {{item}}
+            </movable-view>
+          </movable-area>
+        </view>
+      </view>
+      
     </view>
   </view>
   <view class='bottom'>

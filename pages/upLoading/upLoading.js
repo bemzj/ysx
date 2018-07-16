@@ -23,7 +23,11 @@ Page({
         phoneUrl: '',
         routeImg: config.routeImg,
         uploadBtn: false,
-        recognitionPhone: []
+        recognitionPhone: [],
+        alltext:[],
+        wy:{},
+        x:[],
+        y:[]
     },
     /**
      * 生命周期函数--监听页面加载
@@ -50,19 +54,33 @@ Page({
         wx.getStorage({
             key: 'phoneUrl',
             success: function(res) {
+              console.log(res);
                 _this.setData({
                     phoneUrl: res.data
                 });
-                console.log(res.data);
             },
             fail: function(res) {
                 _this.setData({
                     phoneUrl: ''
                 });
             }
-        })
+        });
+        wx.getStorage({
+          key: 'phoneWy',
+          success: function (res) {
+           
+            _this.setData({
+              wy: res.data
+            });
+          },
+          fail: function (res) {
+            var _this = this;
+            _this.setData({
+              wy: res.data
+            });
+          }
+        });
         setTimeout(function() {
-            console.log('phoneUrl:' + _this.data.phoneUrl);
             if (_this.data.phoneUrl != '') {
                 // 调用图片识别接口
                 var url = config.route + api.recognition,
@@ -76,7 +94,29 @@ Page({
                                 recognitionPhone: res.data.result,
                                 uploadBtn: false
                             });
-                            console.log(res.data.result);
+                            var result = res.data.res;
+                            console.log(result);
+                            console.log(_this.data.wy);
+                            var alltext = [];
+                            var x = [];
+                            var y = [];
+                            if (_this.data.wy.w / _this.data.wy.h>320/240)
+                            {
+                              for (var i = 0; i < result.length; i++) {
+                                alltext[i] = result[i].value;
+                                x[i] = result[i]["child-objects"]["0"].position["0"].x / 320 * _this.data.wy.w;
+                                y[i] = result[i]["child-objects"]["0"].position["0"].y / _this.data.wy.h * 240  + _this.data.wy.h / _this.data.wy.w*320
+                              }
+                              _this.setData({
+                                alltext: alltext,
+                                x:x,
+                                y:y
+                              })
+                              console.log(alltext, x, y);
+                            }else{
+
+                            }
+                            
                         } else {
                             popup.showToast(res.data.msg, 'none');
                             _this.setData({
@@ -134,6 +174,7 @@ Page({
             sourceType: ['album'],
             success: function(res) {
                 var tempFilePaths = res.tempFilePaths;
+                console.log(111);
                 var data = {
                     path: tempFilePaths[0]
                 };
@@ -141,6 +182,8 @@ Page({
                     params: data,
                     success: function(res) {
                         res.data = JSON.parse(res.data);
+                        
+
                         // res.data.msg
                         if (res.data.status == 1) {
                             popup.showToast('图片上传成功', 'success');
@@ -148,6 +191,7 @@ Page({
                                 key: "phoneUrl",
                                 data: res.data.url
                             })
+                            
                             _this.setData({
                                 phoneUrl: res.data.url,
                                 uploadBtn: true
