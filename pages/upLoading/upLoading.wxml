@@ -5,25 +5,28 @@
       <view class='list'>
         <view class='list1'>
           <view class='circle'></view>
-          <text class='name'>{{detailData.name}}</text>
-          <text class='company'>{{detailData.company}}</text>
+          <input class='name' bindtap='setName'  type='text' value='{{detailData.name}}' bindinput='inputName'></input>
+          <input class='company' bindtap='setCompany'  type='text' value='{{detailData.company}}'  bindinput='inputCompany'></input>
         </view>
         <view class='list2'>
           <view>
             <view class='list2-1'>
               <view class='phone'>
-                <icon style='background: url("../../images/msg3.png") no-repeat;background-size:100% 100%;'></icon>
-                <text >{{detailData.phone}}</text>
+                <icon class='iconPhone'></icon>
+                <input bindtap='setPhone'  type='text' value='{{detailData.phone}}'  bindinput='inputPhone'></input>
+                <!-- <text bindtap='setPhone' >{{detailData.phone}}</text> -->
               </view>
               <view class='email'>
-                <icon style='background: url("../../images/msg4.png") no-repeat;background-size:100% 100%;'></icon>
-                <text >{{detailData.mail}}</text>
+                <icon class='iconEmail' ></icon>
+                <!-- <text bindtap='setEmail' >{{detailData.mail}}</text> -->
+                <input bindtap='setEmail'  type='text' value='{{detailData.mail}}'  bindinput='inputEmail'></input>
               </view>
             </view>
             <view class='list2-2'>
               <view class='address'>
-                <icon style='background: url("../../images/msg5.png") no-repeat;background-size:100% 100%;'></icon>
-                <text >{{detailData.address}}</text>
+                <icon class='iconAddress' ></icon>
+                <!-- <text bindtap='setAddress' >{{detailData.address}}</text> -->
+                <input bindtap='setAddress'  type='text' value='{{detailData.address}}'  bindinput='inputAddress'></input>
               </view>
             </view>
           </view>
@@ -35,14 +38,11 @@
       <view class='imgOn'>
         <image src='{{ routeImg + phoneUrl }}' mode='aspectFit' wx:if="{{ phoneUrl != '' }}"></image>
         <view class='imgUp'>
-          <movable-area>
-            <movable-view wx:for='{{alltext}}' wx:key="index" x="{{x[index]}}" y="{{y[index]}}">
+          <view wx:for='{{alltext}}' wx:key="index" style='left:{{x[index]}}px;top:{{y[index]}}px;' data-collect='{{item}}' bindtap='copy'>
             {{item}}
-            </movable-view>
-          </movable-area>
+          </view>
         </view>
-      </view>
-      
+      </view>  
     </view>
   </view>
   <view class='bottom'>

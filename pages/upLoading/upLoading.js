@@ -29,6 +29,79 @@ Page({
         x:[],
         y:[]
     },
+    copy:function(e){
+      wx.setClipboardData({
+        data: e.currentTarget.dataset.collect,
+        success: function (res) {
+          
+        }
+      })
+    },
+    //设置名字
+    setName:function(e){
+      var _this = this;
+      var details = _this.data.detailData;
+      wx.getClipboardData({
+        success: function (res) {
+          details.name = res.data;
+          _this.setData({
+            detailData: details
+          })
+        }
+      })
+    },
+    //设置公司名字
+    setCompany: function (e) {
+      var _this = this;
+      var details = _this.data.detailData;
+      wx.getClipboardData({
+        success: function (res) {
+          details.company = res.data;
+          _this.setData({
+            detailData: details
+          })
+        }
+      })
+    },
+    //设置手机号码
+    setPhone: function (e) {
+      var _this = this;
+      var details = _this.data.detailData;
+      wx.getClipboardData({
+        success: function (res) {
+          details.phone = res.data;
+          _this.setData({
+            detailData: details
+          })
+        }
+      })
+    },
+    //设置邮箱
+    setEmail: function (e) {
+      var _this = this;
+      var details = _this.data.detailData;
+      wx.getClipboardData({
+        success: function (res) {
+          details.mail = res.data;
+          _this.setData({
+            detailData: details
+          })
+        }
+      })
+    },
+    //设置地址
+    setAddress: function (e) {
+      var _this = this;
+      var details = _this.data.detailData;
+      wx.getClipboardData({
+        success: function (res) {
+          details.address = res.data;
+          _this.setData({
+            detailData: details
+          })
+        }
+      })
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -45,8 +118,54 @@ Page({
         wx.removeStorageSync('phoneUrl')
         _this.setData({
             phoneUrl: '',
-            uploadBtn: true
+            uploadBtn: true,
+            alltext:[]
         });
+    },
+    inputName:function(e){
+      var _this = this;
+      var val = e.detail.value;
+      var detail = _this.data.detailData;
+      detail.name = val;
+      _this.setData({
+        detailData: detail
+      });
+    },
+    inputCompany: function (e) {
+      var _this = this;
+      var val = e.detail.value;
+      var detail = _this.data.detailData;
+      detail.company = val;
+      _this.setData({
+        detailData: detail
+      });
+    },
+    inputPhone: function (e) {
+      var _this = this;
+      var val = e.detail.value;
+      var detail = _this.data.detailData;
+      detail.phone = val;
+      _this.setData({
+        detailData: detail
+      });
+    },
+    inputEmail: function (e) {
+      var _this = this;
+      var val = e.detail.value;
+      var detail = _this.data.detailData;
+      detail.mail = val;
+      _this.setData({
+        detailData: detail
+      });
+    },
+    inputAddress: function (e) {
+      var _this = this;
+      var val = e.detail.value;
+      var detail = _this.data.detailData;
+      detail.address = val;
+      _this.setData({
+        detailData: detail
+      });
     },
     onShow: function() {
         var _this = this;
@@ -83,6 +202,9 @@ Page({
         setTimeout(function() {
             if (_this.data.phoneUrl != '') {
                 // 调用图片识别接口
+                wx.showLoading({
+                  title: '图片分析中'
+                });
                 var url = config.route + api.recognition,
                     datas = {};
                 datas.url = config.routeImg + _this.data.phoneUrl;
@@ -97,24 +219,38 @@ Page({
                             var result = res.data.res;
                             console.log(result);
                             console.log(_this.data.wy);
+                            wx.hideLoading();
+                            wx.showToast({
+                              title: '图片解析成功',
+                              icon: 'success',
+                              duration: 2000
+                            })
                             var alltext = [];
                             var x = [];
                             var y = [];
-                            if (_this.data.wy.w / _this.data.wy.h>320/240)
+                            if (_this.data.wy.w / _this.data.wy.h>=320/240)
                             {
                               for (var i = 0; i < result.length; i++) {
                                 alltext[i] = result[i].value;
-                                x[i] = result[i]["child-objects"]["0"].position["0"].x / 320 * _this.data.wy.w;
-                                y[i] = result[i]["child-objects"]["0"].position["0"].y / _this.data.wy.h * 240  + _this.data.wy.h / _this.data.wy.w*320
+                                x[i] = result[i]["child-objects"]["0"].position["0"].x / _this.data.wy.w *320 ;
+                                y[i] = result[i]["child-objects"]["0"].position["0"].y / _this.data.wy.h * (320 * _this.data.wy.h / _this.data.wy.w) + (240 - 320 * _this.data.wy.h / _this.data.wy.w) / 2;
                               }
                               _this.setData({
                                 alltext: alltext,
                                 x:x,
                                 y:y
                               })
-                              console.log(alltext, x, y);
                             }else{
-
+                              for (var i = 0; i < result.length; i++) {
+                                alltext[i] = result[i].value;
+                                x[i] = result[i]["child-objects"]["0"].position["0"].x / _this.data.wy.w * (240 * _this.data.wy.w / _this.data.wy.h) + (320 - 240 * _this.data.wy.w / _this.data.wy.h) / 2;
+                                y[i] = result[i]["child-objects"]["0"].position["0"].y / _this.data.wy.h * 240;
+                              }
+                              _this.setData({
+                                alltext: alltext,
+                                x: x,
+                                y: y
+                              })
                             }
                             
                         } else {
@@ -178,6 +314,18 @@ Page({
                 var data = {
                     path: tempFilePaths[0]
                 };
+                wx.getImageInfo({
+                  src: tempFilePaths[0],
+                  success: function (res) {
+                    var wy = {
+                      w: res.width,
+                      h: res.height
+                    };
+                    _this.setData({
+                      wy:wy
+                    });
+                  }
+                })
                 network.uploadFile({
                     params: data,
                     success: function(res) {

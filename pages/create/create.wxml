@@ -35,23 +35,23 @@
   <view class='inputBox' wx:if="{{ hasData == false && share == false }}">
     <form bindsubmit="edtCard">
       <view class='inputs'>
-        <text style='background-image: url("../../images/msg1.png")'>姓名</text>
+        <text>姓名</text>
         <input type="text" placeholder="请输入您的姓名" placeholder-style='inputPlace' name="name" value="{{all.name == null ? '':all.name}}" />
       </view>
       <view class='inputs'>
-        <text style='background-image: url("../../images/msg2.png")'>公司</text>
+        <text>公司</text>
         <input type="text" placeholder="请输入公司名称" placeholder-style='inputPlace' name="company" value="{{all.company==null? '':all.company}}" />
       </view>
       <view class='inputs'>
-        <text style='background-image: url("../../images/msg3.png")'>电话</text>
+        <text>电话</text>
         <input type="number" placeholder="请输入您的联系电话" placeholder-style='inputPlace' name="phone" value="{{all.phone==null ? '' : all.phone}}" />
       </view>
       <view class='inputs'>
-        <text style='background-image: url("../../images/msg4.png")'>邮箱</text>
+        <text>邮箱</text>
         <input type="text" placeholder="请输入邮箱地址" placeholder-style='inputPlace' name="mail" value="{{all.mail==null ? '' : all.mail}}" />
       </view>
       <view class='inputs'>
-        <text style='background-image: url("../../images/msg5.png")'>所在城市</text>
+        <text>所在城市</text>
         <picker mode="region" bindchange="bindRegionChange" value="{{region}}" style='background-image: url("../../images/msg7.png")'>
           <view class="picker">
               {{region[0]}} {{region[1]}} {{region[2]}}
@@ -60,7 +60,7 @@
         </picker>
       </view>
       <view class='inputs'>
-        <text style='background-image: url("../../images/msg6.png")'>详细地址</text>
+        <text>详细地址</text>
         <input type="text" placeholder="请输入详细地址" placeholder-style='inputPlace' value='{{all.address==null ? addressDetail :  all.address}}' name="address" />
       </view>
 
