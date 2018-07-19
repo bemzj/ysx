@@ -180,7 +180,7 @@ Page({
                             })
                             // 返回首页
                             setTimeout(function() {
-                                jump.redirectTo('/pages/upLoading/upLoading');
+                              jump.navigateTo('/pages/upLoading/upLoading');
                             }, 1000);
                         } else {
                             popup.showToast('图片上传失败');
