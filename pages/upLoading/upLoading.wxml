@@ -24,7 +24,7 @@
             </view>
             <view class='list2-2'>
               <view class='address'>
-                <icon class='iconAddress' ></icon>
+                <view class='iconAddress' ></view>
                 <!-- <text bindtap='setAddress' >{{detailData.address}}</text> -->
                 <input bindtap='setAddress'  type='text' value='{{detailData.address}}'  bindinput='inputAddress'></input>
               </view>

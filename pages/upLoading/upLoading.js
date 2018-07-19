@@ -93,6 +93,7 @@ Page({
     setAddress: function (e) {
       var _this = this;
       var details = _this.data.detailData;
+      console.log(e);
       wx.getClipboardData({
         success: function (res) {
           details.address = res.data;
@@ -211,14 +212,13 @@ Page({
                 network.POST(url, {
                     params: datas,
                     success: function(res) {
+                        console.log(res);
                         if (res.data.status == 1) {
                             _this.setData({
                                 recognitionPhone: res.data.result,
                                 uploadBtn: false
                             });
                             var result = res.data.res;
-                            console.log(result);
-                            console.log(_this.data.wy);
                             wx.hideLoading();
                             wx.showToast({
                               title: '图片解析成功',
@@ -317,20 +317,20 @@ Page({
                 wx.getImageInfo({
                   src: tempFilePaths[0],
                   success: function (res) {
-                    var wy = {
-                      w: res.width,
-                      h: res.height
-                    };
-                    _this.setData({
-                      wy:wy
-                    });
+                    
                   }
                 })
                 network.uploadFile({
                     params: data,
                     success: function(res) {
                         res.data = JSON.parse(res.data);
-                        
+                        var wy = {
+                          w: res.data.width,
+                          h: res.data.height
+                        };
+                        _this.setData({
+                          wy: wy
+                        });
 
                         // res.data.msg
                         if (res.data.status == 1) {

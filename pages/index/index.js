@@ -20,7 +20,8 @@ Page({
         },
         userInfo: {},
         hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo')
+        canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        getStatus:true
     },
     //事件处理函数
     // 打开文件夹上传图片
@@ -79,14 +80,14 @@ Page({
                 wx.getImageInfo({
                   src: tempFilePaths[0],
                   success:function(res){
-                    var wy = {
-                      w: res.width,
-                      h: res.height
-                    };
-                    wx.setStorage({
-                      key: "phoneWy",
-                      data: wy,
-                    });
+                    // var wy = {
+                    //   w: res.width,
+                    //   h: res.height
+                    // };
+                    // wx.setStorage({
+                    //   key: "phoneWy",
+                    //   data: wy,
+                    // });
                   }
                 })
                 var data = {
@@ -97,6 +98,15 @@ Page({
                     success: function(res) {
                         console.log(res.data);
                         res.data = JSON.parse(res.data);
+                        var wy = {
+                          w: res.data.width,
+                          h: res.data.height
+                        };
+                        wx.setStorage({
+                          key: "phoneWy",
+                          data: wy,
+                        });
+                        
                         // res.data.msg
                         if (res.data.status == 1) {
                             popup.showToast('图片上传成功', 'success');

@@ -37,3 +37,9 @@
     <view><image src='../../images/my.png' mode='widthFix' bindtap='myCard'></image></view>
   </view>
 </view>
+<view class='hasGet' wx:if="{{getStatus}}">
+  <view class='hasGetPosition'>
+    <text>授权登录</text>
+    <button open-type="getUserInfo">确定</button>
+  </view>
+</view>
