@@ -13,13 +13,14 @@ Page({
      */
     data: {
         detailData: {
-            name: ' ',
-            company: ' ',
-            phone: ' ',
-            mail: ' ',
-            address: ' ',
-            area: ' '
+            name: '',
+            company: '',
+            phone: '',
+            mail: '',
+            address: '',
+            area: '',
         },
+        imgPop:false,
         phoneUrl: '',
         routeImg: config.routeImg,
         uploadBtn: false,
@@ -118,7 +119,8 @@ Page({
         _this.setData({
             phoneUrl: '',
             uploadBtn: true,
-            alltext: []
+            alltext: [],
+            imgPop:false
         });
     },
     inputName: function(e) {
@@ -222,7 +224,8 @@ Page({
                                 title: '图片解析成功',
                                 icon: 'success',
                                 duration: 2000
-                            })
+                            });
+                            
                             var alltext = [];
                             var x = [];
                             var y = [];
@@ -246,7 +249,8 @@ Page({
                                 _this.setData({
                                     alltext: alltext,
                                     x: x,
-                                    y: y
+                                    y: y,
+                                    imgPop:true
                                 })
                             }
                         } else {

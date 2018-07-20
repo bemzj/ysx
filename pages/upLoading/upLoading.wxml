@@ -5,28 +5,28 @@
       <view class='list'>
         <view class='list1'>
           <view class='circle'></view>
-          <input class='name' bindtap='setName'  type='text' value='{{detailData.name}}' bindinput='inputName'></input>
-          <input class='company' bindtap='setCompany'  type='text' value='{{detailData.company}}'  bindinput='inputCompany'></input>
+          <input class='name' bindtap='setName' placeholder='姓名'  type='text' value='{{detailData.name}}' bindinput='inputName'></input>
+          <input class='company' bindtap='setCompany' placeholder='公司名称' type='text' value='{{detailData.company}}'  bindinput='inputCompany'></input>
         </view>
         <view class='list2'>
           <view>
             <view class='list2-1'>
               <view class='phone'>
                 <icon class='iconPhone'></icon>
-                <input bindtap='setPhone'  type='text' value='{{detailData.phone}}'  bindinput='inputPhone'></input>
+                <input bindtap='setPhone' placeholder='手机'  type='text' value='{{detailData.phone}}'  bindinput='inputPhone'></input>
                 <!-- <text bindtap='setPhone' >{{detailData.phone}}</text> -->
               </view>
               <view class='email'>
                 <icon class='iconEmail' ></icon>
                 <!-- <text bindtap='setEmail' >{{detailData.mail}}</text> -->
-                <input bindtap='setEmail'  type='text' value='{{detailData.mail}}'  bindinput='inputEmail'></input>
+                <input bindtap='setEmail' placeholder='邮箱'   type='text' value='{{detailData.mail}}'  bindinput='inputEmail'></input>
               </view>
             </view>
             <view class='list2-2'>
               <view class='address'>
                 <view class='iconAddress' ></view>
                 <!-- <text bindtap='setAddress' >{{detailData.address}}</text> -->
-                <input bindtap='setAddress'  type='text' value='{{detailData.address}}'  bindinput='inputAddress'></input>
+                <input bindtap='setAddress'  placeholder='地址' type='text' value='{{detailData.address}}'  bindinput='inputAddress'></input>
               </view>
             </view>
           </view>
@@ -37,9 +37,13 @@
       <!-- <image src='../../images/img01.png' mode='aspectFit'></image> -->
       <view class='imgOn'>
         <image src='{{ routeImg + phoneUrl }}' mode='aspectFit' wx:if="{{ phoneUrl != '' }}"></image>
-        <view class='imgUp'>
-          <view wx:for='{{alltext}}' wx:key="index" style='left:{{x[index]}}px;top:{{y[index]}}px;' data-collect='{{item}}' bindtap='copy'>
+        <view class='imgUp' wx-if="{{imgPop}}">
+          <!-- <view wx:for='{{alltext}}' wx:key="index" style='left:{{x[index]}}px;top:{{y[index]}}px;' data-collect='{{item}}' bindtap='copy'>
             {{item}}
+          </view> -->
+          <view class='imgCenter'>点击文字可复制</view>
+          <view wx:for='{{alltext}}' wx:key="index" data-collect='{{item}}' bindtap='copy'>
+            {{index+1}}、 {{item}}
           </view>
         </view>
       </view>  
