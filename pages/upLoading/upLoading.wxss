@@ -57,7 +57,7 @@ page {
     background-color: #606060;
     display: flex;
     align-items: center;
-    padding: 40rpx 0;
+    padding: 30rpx 0;
     font-size: 30rpx;
     position: relative;
 }
