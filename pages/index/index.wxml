@@ -2,8 +2,7 @@
 <view class="container">
   <view class='wxSrc'>
     <view class="userinfo">
-      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <block wx:else>
+      <block>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
@@ -37,9 +36,10 @@
     <view><image src='../../images/my.png' mode='widthFix' bindtap='myCard'></image></view>
   </view>
 </view>
-<view class='hasGet' wx:if="{{getStatus}}">
+<view class='hasGet' wx:if="{{ getStatus }}">
   <view class='hasGetPosition'>
     <text>授权登录</text>
-    <button open-type="getUserInfo">确定</button>
+    <!-- <button open-type="getUserInfo">确定</button> -->
+    <button slot="confrim"  open-type="getUserInfo" bindgetuserinfo='getUserInfo'>确定</button>
   </view>
 </view>

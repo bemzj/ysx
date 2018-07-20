@@ -15,13 +15,13 @@ Page({
             name: '',
             phone: '',
             mail: '',
-            area: '',
+            area: {
+                areaOne: ''
+            },
             address: '',
         },
         userInfo: {},
-        hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo'),
-        getStatus:true
+        getStatus: true
     },
     //事件处理函数
     // 打开文件夹上传图片
@@ -76,19 +76,19 @@ Page({
             sizeType: ['compressed'],
             sourceType: ['album', 'camera'],
             success: function(res) {
-                var tempFilePaths = res.tempFilePaths;               
+                var tempFilePaths = res.tempFilePaths;
                 wx.getImageInfo({
-                  src: tempFilePaths[0],
-                  success:function(res){
-                    // var wy = {
-                    //   w: res.width,
-                    //   h: res.height
-                    // };
-                    // wx.setStorage({
-                    //   key: "phoneWy",
-                    //   data: wy,
-                    // });
-                  }
+                    src: tempFilePaths[0],
+                    success: function(res) {
+                        // var wy = {
+                        //   w: res.width,
+                        //   h: res.height
+                        // };
+                        // wx.setStorage({
+                        //   key: "phoneWy",
+                        //   data: wy,
+                        // });
+                    }
                 })
                 var data = {
                     path: tempFilePaths[0]
@@ -99,14 +99,13 @@ Page({
                         console.log(res.data);
                         res.data = JSON.parse(res.data);
                         var wy = {
-                          w: res.data.width,
-                          h: res.data.height
+                            w: res.data.width,
+                            h: res.data.height
                         };
                         wx.setStorage({
-                          key: "phoneWy",
-                          data: wy,
+                            key: "phoneWy",
+                            data: wy,
                         });
-                        
                         // res.data.msg
                         if (res.data.status == 1) {
                             popup.showToast('图片上传成功', 'success');
@@ -116,7 +115,7 @@ Page({
                             })
                             // 返回首页
                             setTimeout(function() {
-                              jump.navigateTo('/pages/upLoading/upLoading');
+                                jump.navigateTo('/pages/upLoading/upLoading');
                             }, 1000);
                         } else {
                             popup.showToast('图片上传失败');
@@ -143,27 +142,7 @@ Page({
         if (app.globalData.userInfo) {
             this.setData({
                 userInfo: app.globalData.userInfo,
-                hasUserInfo: true
-            })
-        } else if (this.data.canIUse) {
-            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-            // 所以此处加入 callback 以防止这种情况
-            app.userInfoReadyCallback = res => {
-                this.setData({
-                    userInfo: res.userInfo,
-                    hasUserInfo: true
-                })
-            }
-        } else {
-            // 在没有 open-type=getUserInfo 版本的兼容处理
-            wx.getUserInfo({
-                success: res => {
-                    app.globalData.userInfo = res.userInfo
-                    this.setData({
-                        userInfo: res.userInfo,
-                        hasUserInfo: true
-                    })
-                }
+                getStatus: false
             })
         }
     },
@@ -174,11 +153,34 @@ Page({
         }
     },
     getUserInfo: function(e) {
-        app.globalData.userInfo = e.detail.userInfo
-        this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-        })
+        console.log(e.detail.errMsg);
+        if (e.detail.errMsg == 'getUserInfo:ok') {
+            app.globalData.userInfo = e.detail.userInfo;
+            // 把用户信息存入缓存
+            wx.setStorage({
+                key: "userInfo",
+                data: e.detail.userInfo
+            })
+            this.setData({
+                userInfo: e.detail.userInfo,
+                getStatus: false
+            })
+            setTimeout(function() {
+                //把用户的昵称头像传到后台保存
+                wx.request({
+                    url: config.route + api.SmallUserInfo,
+                    data: {
+                        nickname: app.globalData.userInfo.nickName,
+                        avatarurl: app.globalData.userInfo.avatarUrl,
+                        id: app.globalData.id,
+                        token: config.token,
+                    },
+                    success: function(res) {
+                        // console.log('login:' + res.data.id);
+                    }
+                })
+            }, 500)
+        }
     },
     onShow: function() {
         var _this = this;
