@@ -16,10 +16,13 @@ Page({
         all: {
             company: '',
             name: '',
-            phone: '15999911956',
-            mail: 'qiuzijia520@qq.com',
-            area: {},
-            address: '广州市海珠区琶洲新村广州市海珠区琶洲新村',
+            phone: '',
+            mail: '',
+            area: {
+                areaOne: '',
+                areaTwo: ''
+            },
+            address: '',
             qrcode: ''
         },
         share: false,
@@ -83,11 +86,12 @@ Page({
                 fieldId: _this.data.shareUser,
                 id: app.globalData.id
             };
+        // console.log(datas);
         network.POST(url, {
             params: datas,
             success: function(res) {
                 // res.data = JSON.parse(res.data);
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.status == 1) {
                     popup.showToast(res.data.msg, 'success');
                     // 返回首页
@@ -111,7 +115,8 @@ Page({
      */
     onLoad: function(options) {
         var _this = this;
-        if (options.type) {
+        // console.log(options);
+        if (options.type == 'share') {
             _this.setData({
                 share: true,
                 shareUser: options.id

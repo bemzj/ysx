@@ -10,7 +10,7 @@
         <text>拍照可添加名片</text>
       </view>
       <view class='wrap1-3'>
-        <image style="" mode="" src="http://tmp/wx31038753ee647800.o6zAJsyQvFz_wOH3_lefGwrfqsDw.pzVEsn6M4ZD00acfe0596a0fb1b729c1419405c463a9.png" binderror="" bindload=""></image>
+        <!-- <image style="" mode="" src="http://tmp/wx31038753ee647800.o6zAJsyQvFz_wOH3_lefGwrfqsDw.pzVEsn6M4ZD00acfe0596a0fb1b729c1419405c463a9.png" binderror="" bindload=""></image> -->
         <button bindtap="uploadCard">
           <icon style='background: url("../../images/icon01.png") no-repeat;background-size:100% 100%;'></icon>
           <text>拍照上传名片</text>

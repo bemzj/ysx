@@ -97,6 +97,7 @@ App({
                     data: res.data.id
                 })
                 _this.globalData.id = res.data.id;
+                // console.log('userId:' + _this.globalData.id);
             }
         })
     },

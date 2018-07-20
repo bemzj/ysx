@@ -118,8 +118,7 @@ Page({
     },
     delCard: function(e) {
         // 名片的id
-        console.log(e.target.dataset.id);
-
+        // console.log(e.target.dataset.id);
         var _this = this;
         var url = config.route + api.delMycard,
             data = {
@@ -136,11 +135,11 @@ Page({
                     var info = _this.data.cardList;
                     var newInfo = [];
                     for (var i = 0; i < info.length; i++) {
-                        if(info[i].id != e.target.dataset.id){
+                        if (info[i].id != e.target.dataset.id) {
                             newInfo.push(info[i]);
                         }
                     }
-                    console.log(newInfo);
+                    // console.log(newInfo);
                     _this.setData({
                         cardList: newInfo
                     });
@@ -169,7 +168,7 @@ Page({
                 network.uploadFile({
                     params: data,
                     success: function(res) {
-                        console.log(res.data);
+                        // console.log(res.data);
                         res.data = JSON.parse(res.data);
                         // res.data.msg
                         if (res.data.status == 1) {
@@ -180,7 +179,7 @@ Page({
                             })
                             // 返回首页
                             setTimeout(function() {
-                              jump.navigateTo('/pages/upLoading/upLoading');
+                                jump.navigateTo('/pages/upLoading/upLoading');
                             }, 1000);
                         } else {
                             popup.showToast('图片上传失败');
