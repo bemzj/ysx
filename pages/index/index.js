@@ -77,19 +77,8 @@ Page({
             sourceType: ['album', 'camera'],
             success: function(res) {
                 var tempFilePaths = res.tempFilePaths;
-                wx.getImageInfo({
-                    src: tempFilePaths[0],
-                    success: function(res) {
-                        // var wy = {
-                        //   w: res.width,
-                        //   h: res.height
-                        // };
-                        // wx.setStorage({
-                        //   key: "phoneWy",
-                        //   data: wy,
-                        // });
-                    }
-                })
+                console.log(res.tempFilePaths[0]);
+                
                 var data = {
                     path: tempFilePaths[0]
                 };

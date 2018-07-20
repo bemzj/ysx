@@ -25,7 +25,8 @@ Page({
         routeImg: config.routeImg,
         uploadBtn: false,
         recognitionPhone: [],
-        alltext: [],
+        alltext: [
+        ],
         wy: {},
         x: [],
         y: []
@@ -206,64 +207,54 @@ Page({
                 wx.showLoading({
                     title: '图片分析中'
                 });
+                console.log(_this.data.phoneUrl);
                 var url = config.route + api.recognition,
                     datas = {};
                 datas.url = config.routeImg + _this.data.phoneUrl;
-                network.POST(url, {
-                    params: datas,
-                    success: function(res) {
-                        console.log(res);
-                        if (res.data.status == 1) {
-                            _this.setData({
-                                recognitionPhone: res.data.result,
-                                uploadBtn: false
-                            });
-                            var result = res.data.res;
-                            wx.hideLoading();
-                            wx.showToast({
-                                title: '图片解析成功',
-                                icon: 'success',
-                                duration: 2000
-                            });
-                            
-                            var alltext = [];
-                            var x = [];
-                            var y = [];
-                            if (_this.data.wy.w / _this.data.wy.h >= 320 / 240) {
-                                for (var i = 0; i < result.length; i++) {
-                                    alltext[i] = result[i].value;
-                                    x[i] = result[i]["child-objects"]["0"].position["0"].x / _this.data.wy.w * 320;
-                                    y[i] = result[i]["child-objects"]["0"].position["0"].y / _this.data.wy.h * (320 * _this.data.wy.h / _this.data.wy.w) + (240 - 320 * _this.data.wy.h / _this.data.wy.w) / 2;
-                                }
-                                _this.setData({
-                                    alltext: alltext,
-                                    x: x,
-                                    y: y
-                                })
-                            } else {
-                                for (var i = 0; i < result.length; i++) {
-                                    alltext[i] = result[i].value;
-                                    x[i] = result[i]["child-objects"]["0"].position["0"].x / _this.data.wy.w * (240 * _this.data.wy.w / _this.data.wy.h) + (320 - 240 * _this.data.wy.w / _this.data.wy.h) / 2;
-                                    y[i] = result[i]["child-objects"]["0"].position["0"].y / _this.data.wy.h * 240;
-                                }
-                                _this.setData({
-                                    alltext: alltext,
-                                    x: x,
-                                    y: y,
-                                    imgPop:true
-                                })
-                            }
-                        } else {
-                            popup.showToast(res.data.msg, 'none');
-                            _this.setData({
-                                uploadBtn: true
-                            });
-                        }
-                    },
-                    fail: function() {
+                console.log(datas.url);
+                wx.request({
+                  url: datas.url,
+                  method: 'GET',
+                  responseType: 'arraybuffer',
+                  success: function (res) {
+                    let base64 = wx.arrayBufferToBase64(res.data);//把arraybuffer转成base64
+                    base64 = 'data:image/jpeg;base64,' + base64　//不加上这串字符，在页面无法显示的哦  
+                    datas.url = base64;
+                    network.POST(url, {
+                      params: datas,
+                      success: function (res) {
+                        console.log(JSON.parse(res.data.outputs["0"].outputValue.dataValue));
+                        var allDate = JSON.parse(res.data.outputs["0"].outputValue.dataValue);
+                        var mydata = {
+                          name: allDate.name,
+                          company: allDate.addr["0"],
+                          phone: allDate.tel_cell["0"],
+                          mail: allDate.email["0"],
+                          address: allDate.addr["0"],
+                          area: '',
+                        } 
+                        _this.setData({
+                          alltext: allDate,
+                          imgPop:true,
+                          detailData: mydata,
+                          uploadBtn: false
+                        });
+                        
+                        wx.hideLoading();
+                        wx.showToast({
+                          title: '图片解析成功',
+                          icon: 'success',
+                          duration: 2000
+                          
+                        });
+                      },
+                      fail: function () {
                         //失败后的逻辑  
-                    },
-                })
+                      },
+                    })     
+                  }
+                });
+                
             } else {
                 _this.setData({
                     uploadBtn: true
@@ -305,15 +296,16 @@ Page({
         wx.chooseImage({
             count: 1, // 默认9
             // sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-            // sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+            sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
             sizeType: ['compressed'],
-            sourceType: ['album'],
+            // sourceType: ['album'],
             success: function(res) {
                 var tempFilePaths = res.tempFilePaths;
                 console.log(111);
                 var data = {
                     path: tempFilePaths[0]
                 };
+                
                 wx.getImageInfo({
                     src: tempFilePaths[0],
                     success: function(res) {}
@@ -322,13 +314,7 @@ Page({
                     params: data,
                     success: function(res) {
                         res.data = JSON.parse(res.data);
-                        var wy = {
-                            w: res.data.width,
-                            h: res.data.height
-                        };
-                        _this.setData({
-                            wy: wy
-                        });
+                  
                         // res.data.msg
                         if (res.data.status == 1) {
                             popup.showToast('图片上传成功', 'success');
